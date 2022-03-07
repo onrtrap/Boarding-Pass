@@ -13,8 +13,10 @@ public class Gui {
     private final int height = 600;
     private final JFrame frame;
     private final JPanel panel;
+    private final JPanel imagePanel;
     private final JPanel panelCenter;
     private JLabel label;
+    private JLabel logo;
     private JTextField name = new JTextField(20);
     private JTextField email = new JTextField(20);
     private JTextField phoneNumber = new JTextField(20);
@@ -25,15 +27,23 @@ public class Gui {
     private JTextField departureTime = new JTextField(20);
     private JTextField origin = new JTextField(20);
     private JButton submit = new JButton("Submit");
+
     public Gui()
     {
     frame = new JFrame(title);
     panel = new JPanel();
+    imagePanel = new JPanel();
     panelCenter = new JPanel();
     frame.setSize(width, height);
     frame.setResizable(false);
 
         frame.setDefaultCloseOperation((JFrame.DISPOSE_ON_CLOSE));
+        //logo = new JLabel();
+        //logo.setIcon(new ImageIcon("delta.png"));
+        //Dimension size = logo.getPreferredSize();
+        //logo.setBounds(400, 500, 256, 192);
+        //imagePanel.add(logo);
+
     label = new JLabel("Name:");
     panel.add(label);
     panel.add(name);
@@ -75,7 +85,8 @@ public class Gui {
         frame.getContentPane().add(BorderLayout.CENTER, panelCenter);
 
     //frame.setLayout(new FlowLayout());
-    //frame.pack();
+        frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
