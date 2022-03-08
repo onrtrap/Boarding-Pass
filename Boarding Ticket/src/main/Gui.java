@@ -13,10 +13,9 @@ public class Gui {
     private final int height = 600;
     private final JFrame frame;
     private final JPanel panel;
-    private final JPanel imagePanel;
     private final JPanel panelCenter;
     private JLabel label;
-    private JLabel logo;
+    private JLabel logopic;
     private JTextField name = new JTextField(20);
     private JTextField email = new JTextField(20);
     private JTextField phoneNumber = new JTextField(20);
@@ -28,21 +27,22 @@ public class Gui {
     private JTextField origin = new JTextField(20);
     private JButton submit = new JButton("Submit");
 
+    //Path needs to be absolute
+    ImageIcon logo = new ImageIcon("C:\\Users\\OrnRo\\IdeaProjects\\Boarding Ticket\\src\\resources\\delta.png");
+
     public Gui()
     {
     frame = new JFrame(title);
     panel = new JPanel();
-    imagePanel = new JPanel();
     panelCenter = new JPanel();
+    logopic = new JLabel();
     frame.setSize(width, height);
-    frame.setResizable(false);
-
+    frame.setResizable(true);
+    Dimension d = new Dimension (256,192);
         frame.setDefaultCloseOperation((JFrame.DISPOSE_ON_CLOSE));
-        //logo = new JLabel();
-        //logo.setIcon(new ImageIcon("delta.png"));
-        //Dimension size = logo.getPreferredSize();
-        //logo.setBounds(400, 500, 256, 192);
-        //imagePanel.add(logo);
+        logopic.setIcon(logo);
+        logopic.setBounds(400, 500, 256, 192);
+        logopic.setPreferredSize(d);
 
     label = new JLabel("Name:");
     panel.add(label);
@@ -54,23 +54,23 @@ public class Gui {
         panel.add(label);
         panel.add(phoneNumber);
         label = new JLabel("Gender:");
-        panelCenter.add(label);
-        panelCenter.add(gender);
+        panel.add(label);
+        panel.add(gender);
         label = new JLabel("Age:");
-        panelCenter.add(label);
-        panelCenter.add(age);
+        panel.add(label);
+        panel.add(age);
         label = new JLabel("Date:");
-        panelCenter.add(label);
-        panelCenter.add(date);
+        panel.add(label);
+        panel.add(date);
         label = new JLabel("Origin:");
-        panelCenter.add(label);
-        panelCenter.add(origin);
+        panel.add(label);
+        panel.add(origin);
         label = new JLabel("Destination:");
-        panelCenter.add(label);
-        panelCenter.add(destination);
+        panel.add(label);
+        panel.add(destination);
         label = new JLabel("Depart.Time");
-        panelCenter.add(label);
-        panelCenter.add(departureTime);
+        panel.add(label);
+        panel.add(departureTime);
         //panel.add(submit);
         panel.setBackground(Color.CYAN);
         panelCenter.setBackground(Color.CYAN);
@@ -80,11 +80,10 @@ public class Gui {
                     returnFields();
             }
                                  });
+        panel.add(logopic);
         frame.getContentPane().add(BorderLayout.NORTH, panel);
         frame.getContentPane().add(BorderLayout.SOUTH, submit);
-        frame.getContentPane().add(BorderLayout.CENTER, panelCenter);
 
-    //frame.setLayout(new FlowLayout());
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -109,5 +108,21 @@ public class Gui {
         return output;
     }
 
+   public String getTitle() {
+        return title;
+    }
+
+   public int getWidth(){
+        return width;
+    }
+
+   public int getHeight(){
+
+        return height;
+    }
+
+    public String[] getGenders(){
+        return genders;
+    }
 
 }
