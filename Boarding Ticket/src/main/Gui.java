@@ -83,7 +83,7 @@ public class Gui {
         panel.add(logopic);
         frame.getContentPane().add(BorderLayout.NORTH, panel);
         frame.getContentPane().add(BorderLayout.SOUTH, submit);
-
+        frame.getContentPane().setBackground(Color.CYAN);
         //frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
